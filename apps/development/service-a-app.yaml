@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/YOUR_ORG/YOUR_REPO.git   # change me
     targetRevision: main
-    path: services/service-a/manifests
+    path: services/app-a
     directory:
       recurse: true
   destination:
