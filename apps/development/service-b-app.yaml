@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: service-b
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YOUR_ORG/YOUR_REPO.git   # change me
+    targetRevision: main
+    path: services/service-b/manifests
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default   # deploy to default namespace
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
